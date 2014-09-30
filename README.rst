@@ -226,7 +226,7 @@ from an equally fictional UNIX server.
 
 The assignment is to create three functions. One will read list object containing user account
 data. A second function will use a list of common words used in passwords to see if it can find
-a match using the ``crypt.crypt()`` function. The third function produces a report of users
+a match using a custom ``crypt()`` function. The third function produces a report of users
 you found to be using insecure passwords.
 
 
@@ -236,8 +236,6 @@ Specifications
 #.  Create a file named ``task_04.py``
 
 #.  Import the ``data.py`` file.
-
-#.  Import the ``crypt`` module using ``import crypt``
 
 #.  Instantiate a variable named ``SALT`` and assign it a value of ``'monosodium-glutamate'``.
 
@@ -261,8 +259,8 @@ Specifications
 
     #.  Loop through the ``data.WORDS`` list
 
-    #.  Call the ``crypt.crypt()`` function with each word and the ``SALT`` variable. Compare
-        the result of the string returned by ``crypt.crypt()`` with that passed as the input parameter.
+    #.  Call the ``data.crypt()`` function with each word and the ``SALT`` variable. Compare
+        the result of the string returned by ``data.crypt()`` with that passed as the input parameter.
         Return the word if if a match is found.
 
 #.  Create a function named ``report()`` that accepts a list of tuples
@@ -276,6 +274,10 @@ Specifications
 Output Example
 ^^^^^^^^^^^^^^
 
+.. note::
+
+    This is only example output and not the real passwords in the assignment.
+
 .. code-block::
 
     $ python task_04.py
@@ -287,19 +289,20 @@ Output Example
         Ronda Rihanna	shadow
         Donny Johnson	princess
 
-Crypt.crypt() Function Usage Example
+data.crypt() Function Usage Example
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Note how the second "salt" parameter changes the output. This is called a salted hash.
 
 .. code-block::
 
-    >>> import crypt
-    >>> crypt.crypt('myweakpassword', 'RockSalt')
-    'RoNAF5ZBazwM2'
-    >>> crypt.crypt('myweakpassword', 'monosodium-glutamate')
-    'moUi2EF.m0Xms'
+    >>> import data
+    >>> data.crypt('myweakpassword', 'RockSalt')
+    'V4pbI2d55lfZvSnstgv8L+uaFyg='
+    >>> data.crypt('myweakpassword', 'monosodium-glutamate')
+    'XcuEJjmciLaD9enxYJ4IGatgnD4='
     >>>
+
 
 
 
