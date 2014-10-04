@@ -2,8 +2,10 @@
 # -*- coding: utf-8 -*-
 """Task_01 Assignment 6"""
 
+import data
 
-def evens_and_odds(numbers, show_even=True):
+
+def evens_and_odds(numbers = data.TASK_O1, show_even=True):
     """ return evens and odds from a list
     Args:
     numbers (list): list of integers
