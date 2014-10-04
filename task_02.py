@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Task 02 Average of a List
-Created on Tuesday Sep 30 2014
-
 
 Task 02: Average of a List
 
@@ -14,10 +12,15 @@ to further analyze the data.
 Create an additional function named get_average()
 that returns the average value of a list of positive integers.
 """
-
-import data
 import task_01
-def get_average(numbers)
+import data
+the_average = data.TASK_O1
+
+TOTAL_AVG = 0.0
+EVEN_AVG = 0.0
+ODD_AVG = 0.0
+
+def get_average(numbers):
     """Specifications
 
     Open task_02.py
@@ -37,10 +40,20 @@ def get_average(numbers)
     representations with commas separating thousands
     and only two decimals of accuracy.
     Example Report Output
+
+    http://stackoverflow.com/questions/9039961/
+    finding-the-average-of-a-list
+    http://stackoverflow.com/questions/10291619/
+    calculating-average-in-python-using-while-loop
     """
-    TOTAL_AVG = 0
-    EVEN_AVG = 0
-    ODD_AVG = 0
-    
-    for x in numbers:
-    return     
+    total = 0.0
+    for number in numbers:
+        total = total + number
+    return float(total) / float(len(numbers))
+    """return float(sum(numbers)/float(len(numbers)))"""
+TOTAL_AVG = get_average(the_average)
+EVEN_AVG = get_average(task_01.evens_and_odds(the_average))
+ODD_AVG = get_average(task_01.evens_and_odds(the_average, False))
+print TOTAL_AVG
+print EVEN_AVG
+print ODD_AVG

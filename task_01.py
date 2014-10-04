@@ -1,29 +1,43 @@
 #!/usr/bin/env python -tt
 # -*- coding: utf-8 -*-
 """
-Task 01 Even and Odds Function
-Created on Mon Sep 29 18:01:46 2014
+Task 01 - Defines an "Even and Odds Function"
+Imports the "data.py" file for the assignment.
 """
 import data
 
 def evens_and_odds(numbers, show_even=True):
-    """Specifications
+    """Specifications - evens_and_odds()
 
-    Create a file named task_01.py
-    Import the data.py file. You will use the TASK_01 list object a
-    s your data source.
-    Within, task_01.py, define a function named evens_and_odds()
-    evens_and_odds() will accept numbers as a list object
-    and show_even as a boolean value of True or False
-    Takes 2 arguments:
-    The first argument should be named numbers
+   
+
+    function - evens_and_odds()
+
+    Takes two arguments:
+    The first argument named "numbers"
+    accept a number argument as (tuple) or list object
     The second argument should be named show_even
-    and have a default value of True
+    "show_even" as a boolean type
+     with a default value of True
+
     Uses a condition to determine if a number value is even or odd
-    Uses a condition to return either even or odd values
-    Returns a new list objec
+    Returns either even or odd values as a new list object
+
+    Examples:
+    >>> print evens_and_odds((1, 2, 3))
+    [2]
+    >>> print evens_and_odds([1, 2,3, 4, 5, 6, 7, 8, 9, 0], False)
+    [1, 3, 5, 7, 9]
+    >>> A_List = [42, 66, 23, 999, 123, 29]
+    >>> print evens_and_odds(A_List, False)
+    [23, 999, 123, 29]
+    >>>
+    >>> print evens_and_odds(A_List)
+    [42, 66]
+    >>> print evens_and_odds(A_List, True)
+    [42, 66]
     """
-    
+
     return_it = []
     for x in numbers:
         if show_even and (x%2 == 0):
@@ -31,3 +45,4 @@ def evens_and_odds(numbers, show_even=True):
         elif not show_even and (x%2 == 1):
             return_it.append(x)
     return return_it
+
