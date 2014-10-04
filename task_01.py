@@ -3,9 +3,9 @@
 """Task_01 Assignment 6"""
 
 import data
+print data.TASK_O1
 
-
-def evens_and_odds(numbers = data.TASK_O1, show_even=True):
+def evens_and_odds(numbers, show_even=True):
     """ return evens and odds from a list
     Args:
     numbers (list): list of integers
@@ -19,8 +19,8 @@ def evens_and_odds(numbers = data.TASK_O1, show_even=True):
                 is odd
 
     """
-    evenlist = [even for even in range(len(numbers)) if even % 2 == 0]
-    oddlist = [odd for odd in range(len(numbers)) if odd % 2 == 1]
+    evenlist = [even for even in numbers if even % 2 == 0]
+    oddlist = [odd for odd in numbers if odd % 2 == 1]
     if show_even is True:
         returnlist = evenlist
     else:
