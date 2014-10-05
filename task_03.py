@@ -4,14 +4,12 @@
 
 import data
 LIST = data.TASK_O1
-LENLIST = len(LIST)
 
-def bubble_sort(mylist, length):
+def bubble_sort(mylist):
     """Sorts list of numbers into ascending order.
 
         Args:
             mylist (list): list of numeric values
-            length (int): number of values in list
 
         Returns:
             A list of values listed in ascending order.
@@ -20,6 +18,7 @@ def bubble_sort(mylist, length):
             >>>bubble_sort([5, 2, 7, 1], LENLIST)
             [1, 2, 5, 7]
     """
+    length = len(mylist)
     for num in range(length):
         for num1 in range(length-1):
             if mylist[num1] > mylist[num1+1]:
@@ -27,6 +26,6 @@ def bubble_sort(mylist, length):
     return mylist
 
 
-RESULT = bubble_sort(LIST, LENLIST)
+RESULT = bubble_sort(LIST)
 print RESULT
     
