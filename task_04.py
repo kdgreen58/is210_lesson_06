@@ -52,7 +52,7 @@ SALT = 'monosodium-glutamate'
 def test_passwords(account):
     user_id = []
     pass_hash = []
-    hashword = ''
+    hashword = None
     rep_tuple = []
 
     for user_id in account:
@@ -67,9 +67,10 @@ def crack_it(hash_w):
         if hash_w == data.crypt(crack, SALT):
             return crack
 
-def report(tuple):
-    print 'Cracked Passwords' + '\n' + ('-' * 40) + '\n'
-    for index in range(len(tuple)):
-            print tuple[index]
+def report(this_tuple):
+    """http://stackoverflow.com/questions/2990121/how-do-i-loop-through-a-python-list-by-twos"""
+    print 'Cracked Passwords' + '\n' + ('-' * 40)
+    for index in range(0, len(this_tuple)-1, 2):
+        print this_tuple[index] + "   " + this_tuple[index + 1]
 
 test_passwords(data.PASSWD)
