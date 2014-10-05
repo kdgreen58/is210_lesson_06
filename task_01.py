@@ -6,6 +6,7 @@ Imports the "data.py" file for the assignment.
 """
 import data
 
+
 def evens_and_odds(numbers, show_even=True):
     """Specifications - evens_and_odds()
 

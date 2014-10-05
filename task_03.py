@@ -7,6 +7,7 @@ courselib/static/pythonds/SortSearch/TheBubbleSort.html'
 """
 import data
 
+
 def bubble_sort(blob):
     """ task_03 bubble
     The function accepts a list(blob) and then evaluates
