@@ -34,7 +34,7 @@ def test_passwords(account):
         hash_word = crack_it(pass_hash[1])
         rep_tuple += (pass_hash[4], hash_word)
 
-    report(rep_tuple)
+    return report(rep_tuple)
 
 
 def crack_it(hash_w):
