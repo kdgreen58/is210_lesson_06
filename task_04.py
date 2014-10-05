@@ -54,7 +54,8 @@ def report(this_tuple):
     http://stackoverflow.com/questions/2990121/
     how-do-i-loop-through-a-python-list-by-twos"""
     print 'Cracked Passwords' + '\n' + ('-' * 40)
-    for index in range(0, len(this_tuple), 2):
-        print "{0:<20} {1:<30}".format(this_tuple[index], this_tuple[index + 1])
-
+    for index in range(0, len(this_tuple)-1):
+        if (index % 2) == 0:
+            print "{0:<20} {1:<30}".format(this_tuple[index], \
+                                           this_tuple[index +1])
 test_passwords(data.PASSWD)
