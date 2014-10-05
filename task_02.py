@@ -21,25 +21,21 @@ EVEN_AVG = 0.0
 ODD_AVG = 0.0
 
 def get_average(numbers):
-    """Specifications
+    """Specifications: return the average of list
 
-    Open task_02.py
-    Import your task_01.py file
     Import the data.py file
-    Create a function named get_average()
-    that accepts a list object of integers as its only parameter.
+
+    The function get_average()
+    accepts a list object of integers as its only parameter.
     Use a loop to total the sum of the individual list values
-    return the average as a float object
-    Assign the returned value get_average(data.TASK_01)
-    to a variable named TOTAL_AVG
-    Assign EVEN_AVG the average of only the even numbers
-    using your task_01.events_and_odds() function
-    Assign ODD_AVG the average of only the odd numbers
-    using your task_01.events_and_odds() function
-    Produce a report of the data. Display formatted
-    representations with commas separating thousands
+    return the average as a float object. The display is
+    formatted representations with commas separating thousands
     and only two decimals of accuracy.
-    Example Report Output
+
+    Example:
+    >>> test = [1,2,3,4,5,6,7,8,9,10]
+    >>> get_average(test)
+    5.5
 
     http://stackoverflow.com/questions/9039961/
     finding-the-average-of-a-list
@@ -51,9 +47,11 @@ def get_average(numbers):
         total = total + number
     return float(total) / float(len(numbers))
     """return float(sum(numbers)/float(len(numbers)))"""
+
 TOTAL_AVG = get_average(the_average)
 EVEN_AVG = get_average(task_01.evens_and_odds(the_average))
 ODD_AVG = get_average(task_01.evens_and_odds(the_average, False))
-print TOTAL_AVG
-print EVEN_AVG
-print ODD_AVG
+print 'Task 02 Report' + '\n' + ('-' * 40)
+print 'TOTAL AVG:    ' + '{0:,.2f}'.format(TOTAL_AVG)
+print 'EVEN AVG:     ' + '{0:,.2f}'.format(EVEN_AVG)
+print 'ODD AVG:      ' + '{0:,.2f}'.format(ODD_AVG)

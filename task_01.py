@@ -9,8 +9,6 @@ import data
 def evens_and_odds(numbers, show_even=True):
     """Specifications - evens_and_odds()
 
-   
-
     function - evens_and_odds()
 
     Takes two arguments:
@@ -37,12 +35,10 @@ def evens_and_odds(numbers, show_even=True):
     >>> print evens_and_odds(A_List, True)
     [42, 66]
     """
-
     return_it = []
-    for x in numbers:
-        if show_even and (x%2 == 0):
-            return_it.append(x)
-        elif not show_even and (x%2 == 1):
-            return_it.append(x)
+    for its in numbers:
+        if show_even and ((its % 2) == 0):
+            return_it.append(its)
+        elif not show_even and ((its % 2) == 1):
+            return_it.append(its)
     return return_it
-
