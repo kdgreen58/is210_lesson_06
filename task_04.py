@@ -17,6 +17,7 @@ import data
 
 SALT = 'monosodium-glutamate'
 
+
 def test_passwords(account):
     """ accepts a list object parameter 'accou.nt'
     using the known account format 'test_password'
@@ -35,6 +36,7 @@ def test_passwords(account):
 
     report(rep_tuple)
 
+
 def crack_it(hash_w):
     """ Calls the data.crypt() function with each word and
     the SALT variable.
@@ -45,6 +47,7 @@ def crack_it(hash_w):
         if hash_w == data.crypt(crack, SALT):
             return crack
 
+
 def report(this_tuple):
     """ Report prints "this_tuple list created
     by 'test_password'
@@ -52,6 +55,6 @@ def report(this_tuple):
     how-do-i-loop-through-a-python-list-by-twos"""
     print 'Cracked Passwords' + '\n' + ('-' * 40)
     for index in range(0, len(this_tuple)-1, 2):
-        print this_tuple[index] + "   " + this_tuple[index + 1]
+        print "{0:<20} {1:<30}".format(this_tuple[index], this_tuple[index + 1])
 
 test_passwords(data.PASSWD)
