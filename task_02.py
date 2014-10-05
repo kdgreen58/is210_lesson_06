@@ -17,7 +17,9 @@ def get_average(D):
     Number: Returns average as a float.
 
     Examples:
-   
+    >>> import task_02
+    >>> get_average(data.TASK_O1)
+    2833713.0
     """
     global TOTAL_AVG
     L = len(D)
@@ -38,7 +40,12 @@ def REPORT(D):
     Number: Returns report of average numbers.
 
     Examples:
-   
+    >>> REPORT(data.TASK_O1)
+    Task 02 Report
+    -----------------------------
+    Total AVG:      2,833,713.00
+    EVEN_AVG:       966,486.00
+    ODD_AVG:        4,715,937.00
     """
 
     EVEN_AVG = get_average(task_01.evens_and_odds(D))
