@@ -1,6 +1,6 @@
 #!usr/bin/env python
 # -*- coding: utf-8 -*-
-"""DOCSTRING"""
+"""No one likes being 'average'...finding averages."""
 
 import task_01
 import data
@@ -21,7 +21,7 @@ def get_average(listobj):
     """
     total = 0
     for x in listobj:
-        total = (total+x)
+        total = float(total+x)
     AVG = float(total/len(listobj))
     return AVG
 
