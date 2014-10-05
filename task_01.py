@@ -5,6 +5,7 @@ Task 01 - Defines an "Even and Odds Function"
 Imports the "data.py" file for the assignment.
 """
 import data
+THEDATA = data.TASK_O1
 
 
 def evens_and_odds(numbers, show_even=True):
@@ -43,3 +44,7 @@ def evens_and_odds(numbers, show_even=True):
         elif not show_even and ((its % 2) == 1):
             return_it.append(its)
     return return_it
+
+print evens_and_odds(THEDATA)
+print evens_and_odds(THEDATA, True)
+print evens_and_odds(THEDATA, False)
