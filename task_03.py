@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 """Task_02 Assignment 6"""
 
-import data
-
 
 def bubble_sort(bubblelist):
     """accepts a list of integers and orders
