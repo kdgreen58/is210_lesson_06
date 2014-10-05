@@ -26,7 +26,7 @@ def test_passwords(account):
     calls 'report' to user and password list"""
     user_id = []
     pass_hash = []
-    hash_word = None
+    hash_word = ''
     rep_tuple = []
 
     for user_id in account:
