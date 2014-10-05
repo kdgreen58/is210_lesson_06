@@ -34,7 +34,7 @@ def test_passwords(account):
         hash_word = crack_it(pass_hash[1])
         rep_tuple += (pass_hash[4], hash_word)
 
-    return report(rep_tuple)
+    report(rep_tuple)
 
 
 def crack_it(hash_w):
@@ -56,7 +56,8 @@ def report(this_tuple):
     print 'Cracked Passwords' + '\n' + ('-' * 40)
     for index in range(0, len(this_tuple)-1, 2):
         print "{0:<20} {1}".format(this_tuple[index], this_tuple[index +1])
-    return this_tuple
+    
+    return tuple(this_tuple)
 
         
 test_passwords(data.PASSWD)
