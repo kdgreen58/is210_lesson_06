@@ -19,10 +19,10 @@ def get_average(integerlist):
     """
     sumlist = 0
     for n in integerlist:
-        sumlist = Decimal(n + sumlist)
+        sumlist = float(n + sumlist)
     lengthlist = len(integerlist)
     averagelist = float(sumlist / lengthlist)
-    return averagelist.__format__("0.6f")
+    return float(averagelist)
 
 
 TOTAL_AVERAGE = get_average(data.TASK_O1)
