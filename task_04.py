@@ -33,9 +33,8 @@ def test_passwords(account):
         if user_id is not None:
             pass_hash = user_id.split(':')
             hash_word = crack_it(pass_hash[1])
-            rep_tuple += (pass_hash[4], hash_word)
-
-    return report(rep_tuple)
+            rep_tuple += (str(pass_hash[4]), hash_word)
+    return tuple(rep_tuple)
 
 
 def crack_it(hash_w):
@@ -62,4 +61,4 @@ def report(this_tuple):
     return tuple(this_tuple)
 
 
-test_passwords(data.PASSWD)
+report(test_passwords(data.PASSWD))
