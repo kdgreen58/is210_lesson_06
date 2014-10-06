@@ -2,8 +2,10 @@
 # -*- coding: utf-8 -*-
 """Executes a bubble sort function"""
 
-import data
 def bubble_sort(nums):
+
+
+"""Bubble sorts"""
     sorted = False
     while not sorted:
         sorted = True
