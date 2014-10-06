@@ -8,16 +8,21 @@ SALT = 'monosodium-glutamate'
 def test_passwords(listobj):
     """FIX DOCSTRING"""
     tup = ()
-    listsplit = [i.split(':')[1] for i in listobj]
-    testing = crack_it(listsplit)
+    listsplit = ()
+    for i in listobj:
+        listsplit = i.split(':')[1]
+        listsplit.append([('somepass','someusername'),('otherpass','otherusername')])
+        return listsplit
+#    listsplit = [i.split(':')[1] for i in listobj]
+#    testing = crack_it(listsplit)
 
 def crack_it(strobj):
     """FIX DOCSTRING"""
     for words in data.WORDS:
-        print words
         cryptic = data.crypt(words, SALT)
         if cryptic == strobj:
-            return strobj
+            results = words
+            return results
 
 def report(tuplist):
     for pword in tuplist:
