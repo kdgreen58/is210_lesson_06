@@ -18,8 +18,7 @@ def test_passwords(users):
 def crack_it(pws):
     """Tests passwords against a words database"""
     words = test_passwords(pws)
-    users = ()
-    x = 0
+    users = []
     for i in range(0, len(data.WORDS)):
         bad = data.crypt(data.WORDS[i], SALT)
         if bad[1] in words:
