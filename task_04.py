@@ -19,21 +19,39 @@ SALT = 'monosodium-glutamate'
 
 
 def test_passwords(account):
-    """ accepts a list object parameter 'accou.nt'
+    """ accepts a list object parameter 'account'
     using the known account format 'test_password'
     calls 'crack_it' finds passwords
     'test_passwords' build a tuple list and
-    calls 'report' to user and password list"""
+    calls 'report' to user and password list
+
+    Arguement:
+    Takes list with data.PASSWD format
+
+    Returns:
+    Tuple list with user and password pairs.
+
+    Example
+    >>> import data
+    >>> account = ['root:SKzYTp7qhvTMCti4RBYXmxuh9tM=:0:0:root:/home/root',
+    'jlawrence:dK6XC5q3p0CiTu38lRZAQHZSYdU=:1:1:Jill Lawrence:/home/jlawrence']
+    >>> print test_passwords(account)
+     ('root', 'satellites', 'Jill Lawrence', 'retinas')
+    >>>
+    """
     user_id = []
     pass_hash = []
     hash_word = ''
-    rep_tuple = []
+    rep_tuple = ()
+    temptup = ()
 
     for user_id in account:
         pass_hash = user_id.split(':')
-        hash_word = crack_it(pass_hash[1])
-        rep_tuple += (str(pass_hash[4]), str(hash_word))
-    return report(tuple(rep_tuple))
+        if pass_hash[1] is not None:
+            hash_word = crack_it(pass_hash[1])
+            temptup = (str(pass_hash[4]), str(hash_word))
+            rep_tuple += temptup
+    return rep_tuple
 
 
 def crack_it(hash_w):
@@ -41,8 +59,23 @@ def crack_it(hash_w):
     the SALT variable.
     Compare the result of the string returned by data.crypt() with
     that passed as the input parameter.
-    Return the word in 'crack' if if a match is found.
-    Added 'func_words' and 'func_crypt' to speed up processing"""
+
+    Arguement:
+    User hash string for password
+
+    Return:
+    Password as string
+    the word in 'crack' if if a match is found.
+    Added 'func_words' and 'func_crypt' to speed up processing
+
+    Example:
+    from PASSWD = [
+    'root:SKzYTp7qhvTMCti4RBYXmxuh9tM=:0:0:root:/home/root',
+    >>> import data
+    >>> crack_it('SKzYTp7qhvTMCti4RBYXmxuh9tM=')
+     'satellites'
+    >>>
+    """
     func_words = data.WORDS
     func_crypt = data.crypt
     for crack in func_words:
@@ -51,9 +84,24 @@ def crack_it(hash_w):
 
 
 def report(this_tuple):
-    """ Report prints "this_tuple list created
-    Returns a 'this_tuple'
-    by 'test_password'
+    """ Report prints "this_tuple" list
+    Prints a User name and password list
+
+    Arguement:
+    Takes a tuple or list in User, password pair order
+
+    Returns:
+    Tulp 'this_tuple' is return after report is print.
+
+    Example:
+    >>> this_tuple = ('root', 'satellites', 'Jill Lawrence', 'retinas')
+    >>> report(this_tuple)
+    Cracked Passwords
+    ----------------------------------------
+    root                satellites
+    Jill Lawrence       retinas
+    ('root', 'satellites', 'Jill Lawrence', 'retinas')
+    >>>>>
     http://stackoverflow.com/questions/2990121/
     how-do-i-loop-through-a-python-list-by-twos"""
 
@@ -63,4 +111,4 @@ def report(this_tuple):
     return this_tuple
 
 
-test_passwords(data.PASSWD)
+report(test_passwords(data.PASSWD))
