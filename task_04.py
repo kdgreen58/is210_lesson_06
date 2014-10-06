@@ -30,9 +30,9 @@ def test_passwords(account):
     rep_tuple = []
 
     for user_id in account:
-            pass_hash = user_id.split(':')
-            hash_word = crack_it(pass_hash[1])
-            rep_tuple += (str(pass_hash[4]), str(hash_word))
+        pass_hash = user_id.split(':')
+        hash_word = crack_it(pass_hash[1])
+        rep_tuple += (str(pass_hash[4]), str(hash_word))
     return report(tuple(rep_tuple))
 
 
@@ -41,7 +41,8 @@ def crack_it(hash_w):
     the SALT variable.
     Compare the result of the string returned by data.crypt() with
     that passed as the input parameter.
-    Return the word in 'crack' if if a match is found."""
+    Return the word in 'crack' if if a match is found.
+    Added 'func_words' and 'func_crypt' to speed up processing"""
     func_words = data.WORDS
     func_crypt = data.crypt
     for crack in func_words:
