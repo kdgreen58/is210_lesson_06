@@ -10,6 +10,13 @@ SALT = "monosodium-glutamate"
 
 def test_passwords(inputlist):
     """
+
+    Args:
+    inputlist (list): list if user data, strings seperated with :
+                Example: 'jlawrence:dK6XC5q3p0CiTu38lRZAQHZSYdU=:1:1:Jill Lawrence:/home/jlawrence'
+
+    Returns:
+    tuple: tuple of usernames and hashed passwords
     """
     hashedpwds = []
     username = []
@@ -20,14 +27,22 @@ def test_passwords(inputlist):
 
 
 def crack_it(pwds=test_passwords(data.PASSWD)):
+    """Finds passwords that were cracked from a list
+    Args:
+    pwds (tuple): tuple of usernames and hashed passwords
+
+    Returns (list): At the moment returns a
+                    list of matched passwords
+
+    """
     crackedpwds = []
     username = []
     crack = test_passwords(data.PASSWD)
     words = data.WORDS
     for w in words:
         crypted = data.crypt(w, SALT)
-        for n in crack[1]:
-            if n == crypted:
+        for c in crack[1]:
+            if c == crypted:
                 crackedpwds.append(w)
                 return crackedpwds
 test = crack_it()
