@@ -4,7 +4,7 @@
 
 import data
 import task_01
-from decimal import *;
+from decimal import *
 
 
 def get_average(integerlist):
@@ -22,7 +22,7 @@ def get_average(integerlist):
         sumlist = Decimal(n + sumlist)
     lengthlist = len(integerlist)
     averagelist = Decimal(sumlist / lengthlist)
-    return averagelist
+    return averagelist.__format__("0.6f")
 
 
 TOTAL_AVERAGE = get_average(data.TASK_O1)
