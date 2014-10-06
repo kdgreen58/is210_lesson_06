@@ -19,16 +19,16 @@ def test_passwords(inputlist):
     return username, hashedpwds
 
 
-def crack_it(crack):
+def crack_it(pwds=test_passwords(data.PASSWD)):
     crackedpwds = []
+    username = []
     crack = test_passwords(data.PASSWD)
     words = data.WORDS
     for w in words:
         crypted = data.crypt(w, SALT)
         for n in crack[1]:
-            if crypted == n:
+            if n == crypted:
                 crackedpwds.append(w)
-    return crack[0], crackedpwds
-
-test = crack_it(test_passwords(data.PASSWD))
+                return crackedpwds
+test = crack_it()
 print test
