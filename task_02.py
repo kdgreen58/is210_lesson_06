@@ -5,7 +5,7 @@
 import task_01
 import data
 def get_average(nums):
-"""Generates average of a list"""
+    """Generates average of a list"""
     total = 0.00000000000000000000
     count = 0.00000000000000000000
     for i in nums:
