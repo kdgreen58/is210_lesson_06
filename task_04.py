@@ -30,11 +30,10 @@ def test_passwords(account):
     rep_tuple = []
 
     for user_id in account:
-        if user_id is not None:
             pass_hash = user_id.split(':')
             hash_word = crack_it(pass_hash[1])
-            rep_tuple += (str(pass_hash[4]), hash_word)
-    return tuple(rep_tuple)
+            rep_tuple += (str(pass_hash[4]), str(hash_word))
+    return report(tuple(rep_tuple))
 
 
 def crack_it(hash_w):
@@ -43,8 +42,10 @@ def crack_it(hash_w):
     Compare the result of the string returned by data.crypt() with
     that passed as the input parameter.
     Return the word in 'crack' if if a match is found."""
-    for crack in data.WORDS:
-        if hash_w == data.crypt(crack, SALT):
+    func_words = data.WORDS
+    func_crypt = data.crypt
+    for crack in func_words:
+        if hash_w == func_crypt(crack, SALT):
             return crack
 
 
@@ -58,7 +59,7 @@ def report(this_tuple):
     print 'Cracked Passwords' + '\n' + ('-' * 40)
     for index in range(0, len(this_tuple)-1, 2):
         print "{0:<20}{1}".format(this_tuple[index], this_tuple[index + 1])
-    return tuple(this_tuple)
+    return this_tuple
 
 
-report(test_passwords(data.PASSWD))
+test_passwords(data.PASSWD)
