@@ -4,7 +4,6 @@
 
 import data
 import task_01
-from decimal import *
 
 
 def get_average(integerlist):
@@ -28,4 +27,3 @@ def get_average(integerlist):
 TOTAL_AVERAGE = get_average(data.TASK_O1).__format__("0,.2f")
 EVEN_AVERAGE = get_average(task_01.evens_and_odds(data.TASK_O1, show_even=True)).__format__("0,.2f")
 ODD_AVERAGE = get_average(task_01.evens_and_odds(data.TASK_O1, show_even=False)).__format__("0,.2f")
-print TOTAL_AVERAGE
