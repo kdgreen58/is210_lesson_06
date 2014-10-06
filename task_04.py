@@ -5,9 +5,7 @@
 import data
 SALT = 'monosodium-glutamate'
 def test_passwords(users):
-
-
-    """Weeds out bad passwords"""
+"""Weeds out bad passwords"""
     for i in range(0, len(users)):
         cracked_pws = []
         pws = [users[i].split(':')[0], users[i].split(':')[1]]
@@ -18,20 +16,16 @@ def test_passwords(users):
         return users
 
 def crack_it(pws):
-
-
-    """Tests passwords against a words database"""
+"""Tests passwords against a words database"""
     words = test_passwords(pws)
     users = ()
     x = 0
     for i in range(0, len(data.WORDS)):
-        x = data.crypt(data.WORDS[i], SALT)
-        if x[1] in words:
-            users.append(x)
+        bad = data.crypt(data.WORDS[i], SALT)
+        if bad[1] in words:
+            users.append(bad)
         return users
 
 def report(users):
-
-
-    """Generates report of bad passwords"""
+"""Generates report of bad passwords"""
     print "Cracked passwords\n--------\n{0}".format(test_passwords(users))

@@ -3,9 +3,7 @@
 """Executes a bubble sort function"""
 
 def bubble_sort(nums):
-
-
-    """Bubble sorts"""
+"""Bubble sorts"""
     sorted = False
     while not sorted:
         sorted = True
