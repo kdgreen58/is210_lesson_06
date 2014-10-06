@@ -30,9 +30,10 @@ def test_passwords(account):
     rep_tuple = []
 
     for user_id in account:
-        pass_hash = user_id.split(':')
-        hash_word = crack_it(pass_hash[1])
-        rep_tuple += (pass_hash[4], hash_word)
+        if user_id is not None:
+            pass_hash = user_id.split(':')
+            hash_word = crack_it(pass_hash[1])
+            rep_tuple += (pass_hash[4], hash_word)
 
     return report(rep_tuple)
 
