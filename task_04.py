@@ -90,7 +90,7 @@ def report(this_tuple):
     Takes a tuple or list in User, password pair order
 
     Returns:
-    No return - nothing
+    return empty or None
 
     Example:
     >>> this_tuple = ('root', 'satellites', 'Jill Lawrence', 'retinas')
@@ -107,6 +107,7 @@ def report(this_tuple):
     print 'Cracked Passwords' + '\n' + ('-' * 40)
     for usernam in this_tuple:
         print "{0:<20}{1}".format(usernam[0], usernam[1])
+    return
 
 
 report(test_passwords(data.PASSWD))
