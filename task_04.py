@@ -42,15 +42,15 @@ def test_passwords(account):
     user_id = []
     pass_hash = []
     hash_word = ''
-    rep_tuple = ()
+    rep_tuple = []
     temptup = ()
 
     for user_id in account:
         pass_hash = user_id.split(':')
-        if pass_hash[1] is not None:
-            hash_word = crack_it(pass_hash[1])
-            temptup = (str(pass_hash[4]), str(hash_word))
-            rep_tuple += temptup
+        hash_word = crack_it(pass_hash[1])
+        temptup = (pass_hash[4], hash_word)
+        rep_tuple.append(tuple(temptup))
+    print temptup
     return rep_tuple
 
 
@@ -106,9 +106,9 @@ def report(this_tuple):
     how-do-i-loop-through-a-python-list-by-twos"""
 
     print 'Cracked Passwords' + '\n' + ('-' * 40)
-    for index in range(0, len(this_tuple)-1, 2):
-        print "{0:<20}{1}".format(this_tuple[index], this_tuple[index + 1])
+    for usernam in this_tuple:
+        print "{0:<20}{1}".format(usernam[0], usernam[1])
     return this_tuple
 
 
-report(test_passwords(data.PASSWD))
+print(report(test_passwords(data.PASSWD)))
