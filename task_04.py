@@ -110,4 +110,4 @@ def report(this_tuple):
     return this_tuple
 
 
-(report(test_passwords(data.PASSWD)))
+report(test_passwords(data.PASSWD))
