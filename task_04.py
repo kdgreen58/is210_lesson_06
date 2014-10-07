@@ -50,7 +50,6 @@ def test_passwords(account):
         hash_word = crack_it(pass_hash[1])
         temptup = (pass_hash[4], hash_word)
         rep_tuple.append(tuple(temptup))
-    print temptup
     return rep_tuple
 
 
@@ -111,4 +110,4 @@ def report(this_tuple):
     return this_tuple
 
 
-print(report(test_passwords(data.PASSWD)))
+(report(test_passwords(data.PASSWD)))
