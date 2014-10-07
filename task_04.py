@@ -36,7 +36,7 @@ def test_passwords(account):
     >>> account = ['root:SKzYTp7qhvTMCti4RBYXmxuh9tM=:0:0:root:/home/root',
     'jlawrence:dK6XC5q3p0CiTu38lRZAQHZSYdU=:1:1:Jill Lawrence:/home/jlawrence']
     >>> print test_passwords(account)
-     ('root', 'satellites', 'Jill Lawrence', 'retinas')
+    [('root', 'satellites'), ('Jill Lawrence', 'retinas')]
     >>>
     """
     user_id = []
