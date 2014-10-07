@@ -65,7 +65,6 @@ def crack_it(hash_w):
     Return:
     Password as string
     the word in 'crack' if if a match is found.
-    Added 'func_words' and 'func_crypt' to speed up processing
 
     Example:
     from PASSWD = [
@@ -75,10 +74,8 @@ def crack_it(hash_w):
      'satellites'
     >>>
     """
-    func_words = data.WORDS
-    func_crypt = data.crypt
-    for crack in func_words:
-        if hash_w == func_crypt(crack, SALT):
+    for crack in data.WORDS:
+        if hash_w == data.crypt(crack, SALT):
             return crack
 
 
@@ -93,14 +90,13 @@ def report(this_tuple):
     return empty or None
 
     Example:
-    >>> this_tuple = ('root', 'satellites', 'Jill Lawrence', 'retinas')
+    >>> this_tuple = [('root', 'satellites'), ('Jill Lawrence', 'retinas')]
     >>> report(this_tuple)
     Cracked Passwords
     ----------------------------------------
     root                satellites
     Jill Lawrence       retinas
-    ('root', 'satellites', 'Jill Lawrence', 'retinas')
-    >>>>>
+    >>>
     http://stackoverflow.com/questions/2990121/
     how-do-i-loop-through-a-python-list-by-twos"""
 
