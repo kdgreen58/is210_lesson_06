@@ -18,7 +18,7 @@ def get_average(numbers):
     Example:
 
         >>>get_average(data.task_O1)
-        2,833,713.08   
+        2,833,713.08
     """
     total = 0.0
     for num in numbers:
