@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """Task 01 Code Looking at Evens and Odds"""
 
-import data
+import data.py
+
 
 def evens_and_odds(numbers, show_even=True):
     """Finds even or odd values in a list and displays one or the other.
