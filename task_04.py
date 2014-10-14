@@ -35,10 +35,10 @@ def crack_it(pwdhash):
     """Cracks a password.
 
     Args:
-        pwdhash(string): A string that reads in a crypted string. 
+        pwdhash(string): A string that reads in a crypted string.
 
     Returns:
-        string: returns a string of the uncrypted password if found. 
+        string: returns a string of the uncrypted password if found.
 
     Example:
 
@@ -49,12 +49,12 @@ def crack_it(pwdhash):
         crypted = data.crypt(word, SALT)
         if pwdhash == crypted:
             retval = word
-            break
-        
+            break       
     return retval
 
+
 def report(listtup):
-    """Creates a report of matched passwords to full names. 
+    """Creates a report of matched passwords to full names.
 
     Args:
         listup(tuples): A list of tuples
@@ -68,7 +68,7 @@ def report(listtup):
         "Cracked passwords\n------------\nroot sate..."
     """
     report = 'Cracked passwords\n' + ('-' * 65) + '\n'
-    userline='{0} {1}\n'
+    userline = '{0} {1}\n'
     for user in listtup:
         report += userline.format(user[0], user[1])
 
