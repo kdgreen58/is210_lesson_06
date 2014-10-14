@@ -8,18 +8,18 @@ SALT = 'monosodium-glutamate'
 
 
 def test_passwords(listobj):
-    """Tests and cracks a password.
+    """Tests and splits a password.
 
     Args:
         listobj(char list): accepts a list
 
     Returns:
-        list: returns
+        list: returns a full name and the password
 
     Example:
 
-        >>>evens_and_odds(data.task_O1)
-        [250, 728, 752]
+        >>>test_passwords(data.PASSWD)
+        [(Jill Lawrence', 'retinas')]
     """
     cracked = []
     for account in listobj:
@@ -32,23 +32,18 @@ def test_passwords(listobj):
 
 
 def crack_it(pwdhash):
-    """Finds even or odd values in a list and displays one or the other.
+    """Cracks a password.
 
     Args:
-        numbers(num): A numeric type that reads in number(s).
-        show_even(bool, optional): Defaults to showing even values.
+        pwdhash(string): A string that reads in a crypted string. 
 
     Returns:
-        list: returns all even or odd values in a list
+        string: returns a string of the uncrypted password if found. 
 
     Example:
 
-        >>>evens_and_odds(data.task_O1)
-        [250, 728, 752]
-
-        >>>evens_and_odds(data.task_O1, False)
-        [603, 753, 745]
-
+        >>>crack_it(data)
+        [retinas]
     """
     for word in data.WORDS:
         crypted = data.crypt(word, SALT)
@@ -59,25 +54,20 @@ def crack_it(pwdhash):
     return retval
 
 def report(listtup):
-    """Finds even or odd values in a list and displays one or the other.
+    """Creates a report of matched passwords to full names. 
 
     Args:
-        numbers(num): A numeric type that reads in number(s).
-        show_even(bool, optional): Defaults to showing even values.
+        listup(tuples): A list of tuples
 
     Returns:
-        list: returns all even or odd values in a list
+        list: returns a list of full names and weak passwords
 
     Example:
 
-        >>>evens_and_odds(data.task_O1)
-        [250, 728, 752]
-
-        >>>evens_and_odds(data.task_O1, False)
-        [603, 753, 745]
-
+        >>>report(data.PASSWD)
+        "Cracked passwords\n------------\nroot sate..."
     """
-    report = 'Cracked passwords\n' + ('-' * 50) + '\n'
+    report = 'Cracked passwords\n' + ('-' * 65) + '\n'
     userline='{0} {1}\n'
     for user in listtup:
         report += userline.format(user[0], user[1])
