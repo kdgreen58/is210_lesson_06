@@ -83,3 +83,5 @@ def report(listtup):
         report += userline.format(user[0], user[1])
 
     return report
+
+print report(test_passwords(data.PASSWD))
